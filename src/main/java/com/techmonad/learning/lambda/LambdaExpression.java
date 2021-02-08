@@ -54,6 +54,16 @@ public class LambdaExpression {
                         .map(n -> n * n)
                         .collect(toList())
         );
+        
+        // remove duplicates 
+         List<Integer> list2 = Arrays.asList(1, 2, 2, 4, 3, 11,11,6);
+        list2
+            .stream()
+            .collect(Collectors.groupingBy(Function.identity()))
+            .values()
+            .stream()
+            .map(v -> v.stream().findFirst().get())
+            .collect(Collectors.toList());
 
         //Word count
         String str = "This is sample for word word  count count";
